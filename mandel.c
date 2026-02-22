@@ -6,13 +6,23 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 17:05:08 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/22 17:25:35 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/22 21:56:34 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	open_window(t_data *img)
+void	choose_mandel(t_fractol *mandel_img)
+{
+	write(1, "Mandel Selected\n", 16);
+	mandel_img->fractal_type = 0;
+	mandel_img->min_re = -2.0;
+	mandel_img->max_re = 1.0;
+	mandel_img->min_im = -1.5;
+	mandel_img->max_im = 1.5;
+}
+
+void	open_window(t_fractol *img)
 {
     img->mlx = mlx_init();
     img->win = mlx_new_window(img->mlx, WIDTH, HEIGHT, "fractol");
@@ -21,7 +31,7 @@ void	open_window(t_data *img)
                                  &img->line_len, &img->endian);
 }
 
-void draw_pixel(t_data *img, int x, int y, int color)
+void draw_pixel(t_fractol *img, int x, int y, int color)
 {
     char *dst;
 

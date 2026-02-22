@@ -6,13 +6,13 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:20:19 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/22 17:27:40 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/22 21:54:52 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	handle_args(char **argv, int argc)
+void	handle_args(char **argv, int argc, t_fractol *img)
 {
 	if ((argc == 2 || argc == 4) && ft_strcmp(argv[1], "Julia") == 0)
 	{
@@ -23,27 +23,25 @@ void	handle_args(char **argv, int argc)
 		}
 		else
 		{
-			write(1, "Julia Selected!", 16);
+			choose_julia(img, argv);
 			return ;
 		}
 	}
 	else if (argc == 2 && ft_strcmp(argv[1], "Mandelbrot") == 0)
 	{
-		write(1, "Mandelbrot Selected\n", 20);
+		choose_mandel(img);
 		return ;
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	t_data img;
+	t_fractol img;
 
 	if (argc >= 2 && argc <= 4)
-	{
-		handle_args(argv, argc);
-	}
+		handle_args(argv, argc, &img);
 	else
-		write(1, "no arguments or too many arguments inputted", 34);
+		write(1, "Choose to run \n ./fractol Mandelbrot \n OR \n ./fractol Julia <real> <imagi>\n", 75);
 		
 	open_window(&img);
 	int y = 0;
@@ -77,7 +75,8 @@ double pixel_to_imag(int y, t_fractol *f)
  */
 
  //=============================================================
-// rendering a fractol
+ 
+// rendering a fractol any one of them
 /* void render(t_fractol *f)
 {
     int x, y, iter;
@@ -100,21 +99,5 @@ double pixel_to_imag(int y, t_fractol *f)
         }
     }
     mlx_put_image_to_window(f->img.mlx, f->img.win, f->img.img, 0, 0);
-}
- */
-
-/* 
-int main(void)
-{
-    t_data img;
-
-    img.mlx = mlx_init();
-    img.win = mlx_new_window(img.mlx, WIDTH, HEIGHT, "fractol");
-    img.img = mlx_new_image(img.mlx, WIDTH, HEIGHT);
-    img.addr = mlx_get_data_addr(img.img, &img.bpp,
-                                 &img.line_len, &img.endian);
-
-    mlx_put_image_to_window(img.mlx, img.win, img.img, 0, 0);
-    mlx_loop(img.mlx);
 }
  */
