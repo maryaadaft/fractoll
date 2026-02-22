@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 17:05:08 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/22 21:56:34 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/22 21:59:19 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,60 @@ int mandelbrot(double c_re, double c_im, int max_iter)
     }
     return i;
 }
+//===================================
+
+/* int    mandelbrot(double c_re, double c_im)
+{
+    double  z_re;
+    double  z_im;
+    double  tmp;
+    int     i;
+
+    z_re = 0.0;
+    z_im = 0.0;
+    i = 0;
+    while (z_re * z_re + z_im * z_im <= 4.0 && i < MAX_ITER)
+    {
+        tmp = z_re * z_re - z_im * z_im + c_re;
+        z_im = 2 * z_re * z_im + c_im;
+        z_re = tmp;
+        i++;
+    }
+    return (i);
+}
+
+int    get_color(int iter)
+{
+    if (iter == MAX_ITER)
+        return (0x000000);
+    return (iter * 0xFFFFFF / MAX_ITER);
+}
+
+void    render(t_fractol *img)
+{
+    int     x;
+    int     y;
+    double  cr;
+    double  ci;
+    int     iter;
+
+    y = 0;
+    while (y < HEIGHT)
+    {
+        x = 0;
+        while (x < WIDTH)
+        {
+            cr = img->min_re + (double)x / WIDTH * (img->max_re - img->min_re);
+            ci = img->min_im + (double)y / HEIGHT * (img->max_im - img->min_im);
+            if (img->fractal_type == 0)
+                iter = mandelbrot(cr, ci);
+            else
+                iter = julia(cr, ci, img);
+            draw_pixel(img, x, y, get_color(iter));
+            x++;
+        }
+        y++;
+    }
+    mlx_put_image_to_window(img->mlx, img->win, img->img, 0, 0);
+}
+ */
