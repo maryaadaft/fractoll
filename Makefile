@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 MLX_EX = mlx
 MLX_FLAG = -L$(MLX_EX) -lmlx -lXext -lX11 -lm
 
-SRCs = fractol.c
+SRCs = fractol.c parse_utils.c mandel.c
 OBJs = $(SRCs:.c=.o)
 
 NAME = fractol
