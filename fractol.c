@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:20:19 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/22 21:59:44 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/22 22:02:50 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,21 @@ int	main(int argc, char **argv)
 		write(1, "Choose to run \n ./fractol Mandelbrot \n OR \n ./fractol Julia <real> <imagi>\n", 75);
 		
 	open_window(&img);
-	// render(&img);
-    // mlx_loop(img.mlx);
-	int y = 0;
-	while(y < HEIGHT)
-	{
-		int x = 0;
-		while (x < WIDTH)
-		{
-			draw_pixel(&img, x, y, 0x000000FF);
-			x++;
-		}
-		y++;
-	}
-	mlx_put_image_to_window(img.mlx, img.win, img.img, 0, 0);
-	mlx_loop(img.mlx);
+	render(&img);
+    mlx_loop(img.mlx);
+	// int y = 0;
+	// while(y < HEIGHT)
+	// {
+	// 	int x = 0;
+	// 	while (x < WIDTH)
+	// 	{
+	// 		draw_pixel(&img, x, y, 0x000000FF);
+	// 		x++;
+	// 	}
+	// 	y++;
+	// }
+	// mlx_put_image_to_window(img.mlx, img.win, img.img, 0, 0);
+	// mlx_loop(img.mlx);
 	return (0);
 }
 

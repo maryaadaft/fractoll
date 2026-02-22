@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:53:53 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/22 21:54:34 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/22 22:00:55 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ void draw_pixel(t_fractol *img, int x, int y, int color);
 
 void	choose_mandel(t_fractol *img);
 void	choose_julia(t_fractol *img, char **argv);
+
+int    mandelbrot(double c_re, double c_im);
+int    get_color(int iter);
+void    render(t_fractol *img);
+
 
 #endif
 
