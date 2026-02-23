@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 21:40:46 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/22 17:18:53 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/23 15:57:53 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,5 @@ int	ft_strcmp(const char *s1, const char *s2)
 	}
 	return (0);
 }
+//parse julia
+//check julia parameters

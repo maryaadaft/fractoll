@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:20:19 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/22 22:02:50 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/23 15:53:16 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	handle_args(char **argv, int argc, t_fractol *img)
 			write(1, "Please add the 2 Julia values!!!", 33);
 			return ;
 		}
-		else
+		else if (argc == 4 && ft_strcmp(argv[1], "Julia") == 0)
 		{
 			choose_julia(img, argv);
 			return ;
@@ -32,6 +32,11 @@ void	handle_args(char **argv, int argc, t_fractol *img)
 		choose_mandel(img);
 		return ;
 	}
+	else
+	{
+		write(1, "Choose to run \n ./fractol Mandelbrot \n OR \n ./fractol Julia <real> <imagi>\n", 75);
+		exit(1);	
+	}
 }
 
 int	main(int argc, char **argv)
@@ -41,24 +46,17 @@ int	main(int argc, char **argv)
 	if (argc >= 2 && argc <= 4)
 		handle_args(argv, argc, &img);
 	else
+	{
 		write(1, "Choose to run \n ./fractol Mandelbrot \n OR \n ./fractol Julia <real> <imagi>\n", 75);
+		return (1);
+	}
 		
 	open_window(&img);
 	render(&img);
+	mlx_key_hook(img.win, key_handler, &img);
+    mlx_mouse_hook(img.win, mouse_handler, &img);
+    mlx_hook(img.win, 17, 0, close_handler, &img);
     mlx_loop(img.mlx);
-	// int y = 0;
-	// while(y < HEIGHT)
-	// {
-	// 	int x = 0;
-	// 	while (x < WIDTH)
-	// 	{
-	// 		draw_pixel(&img, x, y, 0x000000FF);
-	// 		x++;
-	// 	}
-	// 	y++;
-	// }
-	// mlx_put_image_to_window(img.mlx, img.win, img.img, 0, 0);
-	// mlx_loop(img.mlx);
 	return (0);
 }
 

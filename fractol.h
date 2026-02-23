@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:53:53 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/22 22:00:55 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/23 15:56:35 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,22 @@
 #include <math.h>
 #include <stdlib.h>
 #include "mlx/mlx.h"
+#include <stdio.h>
 
 //window size
 # define WIDTH 600
 # define HEIGHT 600
 # define MAX_ITER 100
 
+//keys
+# define KEY_ESC 65307
+
 typedef struct s_fractol
 {
     // mlx stuff
     void    *mlx;
     void    *win;
+	//img
     void    *img;
     char    *addr;
     int     bpp;
@@ -55,6 +60,10 @@ int    mandelbrot(double c_re, double c_im);
 int    get_color(int iter);
 void    render(t_fractol *img);
 
+void    zoom(t_fractol *img, double factor);
+int     mouse_handler(int button, int x, int y, t_fractol *img);
+int    close_handler(t_fractol *img);
+int    key_handler(int keycode, t_fractol *img);
 
 #endif
 
