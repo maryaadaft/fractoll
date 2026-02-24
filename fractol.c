@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:20:19 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/23 15:53:16 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/24 17:01:00 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ void	handle_args(char **argv, int argc, t_fractol *img)
 	{
 		if ((argc == 2) &&  ft_strcmp(argv[1], "Julia") == 0)
 		{
-			write(1, "Please add the 2 Julia values!!!", 33);
-			return ;
+			print_error("Please enter 2 valid Julia parameters");
 		}
 		else if (argc == 4 && ft_strcmp(argv[1], "Julia") == 0)
 		{
@@ -34,8 +33,7 @@ void	handle_args(char **argv, int argc, t_fractol *img)
 	}
 	else
 	{
-		write(1, "Choose to run \n ./fractol Mandelbrot \n OR \n ./fractol Julia <real> <imagi>\n", 75);
-		exit(1);	
+		print_error("Choose to run \n ./fractol Mandelbrot \n OR \n ./fractol Julia <real> <imagi>\n");
 	}
 }
 
@@ -46,11 +44,8 @@ int	main(int argc, char **argv)
 	if (argc >= 2 && argc <= 4)
 		handle_args(argv, argc, &img);
 	else
-	{
-		write(1, "Choose to run \n ./fractol Mandelbrot \n OR \n ./fractol Julia <real> <imagi>\n", 75);
-		return (1);
-	}
-		
+		print_error("Choose to run \n ./fractol Mandelbrot \n OR \n ./fractol Julia <real> <imagi>\n");
+
 	open_window(&img);
 	render(&img);
 	mlx_key_hook(img.win, key_handler, &img);

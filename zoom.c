@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:37:04 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/23 15:57:00 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/24 15:08:19 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int    mouse_handler(int button, int x, int y, t_fractol *img)
 {
     (void)x; //keep these, the program segfaults without them lol
     (void)y;
-	printf("button: %d\n", button);
     if (button == 4)
         zoom(img, 0.8);
     else if (button == 5)

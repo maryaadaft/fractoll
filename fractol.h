@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:53:53 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/23 15:56:35 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/24 16:55:51 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,15 @@
 //window size
 # define WIDTH 600
 # define HEIGHT 600
-# define MAX_ITER 100
+# define MAX_ITER 88
 
 //keys
 # define KEY_ESC 65307
+
+# define KEY_UP 111
+# define KEY_DOWN 116
+# define KEY_LEFT 113
+# define KEY_RIGHT 114
 
 typedef struct s_fractol
 {
@@ -52,6 +57,8 @@ typedef struct s_fractol
 int	ft_strcmp(const char *s1, const char *s2);
 void	open_window(t_fractol *img);
 void draw_pixel(t_fractol *img, int x, int y, int color);
+void	print_error(char *error_msg);
+
 
 void	choose_mandel(t_fractol *img);
 void	choose_julia(t_fractol *img, char **argv);
@@ -65,7 +72,12 @@ int     mouse_handler(int button, int x, int y, t_fractol *img);
 int    close_handler(t_fractol *img);
 int    key_handler(int keycode, t_fractol *img);
 
+int julia(double z_re, double z_im, double c_re, double c_im, int max_iter);
+
+double    ft_atof(const char *s);
+
 #endif
+
 
 
 

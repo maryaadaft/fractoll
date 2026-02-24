@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 17:25:45 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/22 21:57:42 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/24 17:07:15 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	choose_julia(t_fractol *julia_img, char **argv)
 	(void)argv;
 	write(1, "Julia Selected\n", 15);
 	julia_img->fractal_type = 1;
-	// julia_img->julia_re = ft_atof(argv[2]); //remake atoi to handle doubles
-	// julia_img->julia_im = ft_atof(argv[3]);
+	julia_img->julia_re = ft_atof(argv[2]);
+	julia_img->julia_im = ft_atof(argv[3]);
 	julia_img->min_re = -2.0;
 	julia_img->max_re = 2.0;
 	julia_img->min_im = -2.0;

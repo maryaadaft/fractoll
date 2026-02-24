@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:26:12 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/23 15:41:04 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/24 17:25:37 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,23 @@ void draw_pixel(t_fractol *img, int x, int y, int color)
     *(unsigned int*)dst = color;
 }
 
-int    get_color(int iter)
+int get_color(int iter)
 {
+    double t;
+    int r;
+    int g;
+    int b;
+
     if (iter == MAX_ITER)
         return (0x000000);
-    return (iter * 0xFFFFFF / MAX_ITER);
+
+    t = (double)iter / MAX_ITER;
+
+    r = (int)(9 * (1 - t) * t * t * t * 255);
+    g = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
+    b = (int)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
+
+    return (r << 16 | g << 8 | b);
 }
 
 void    render(t_fractol *img)
@@ -54,8 +66,9 @@ void    render(t_fractol *img)
             ci = img->min_im + (double)y / HEIGHT * (img->max_im - img->min_im);
             if (img->fractal_type == 0)
                 iter = mandelbrot(cr, ci);
-            // else
-            //     iter = julia(cr, ci, img);
+            else
+    			iter = julia(cr, ci, img->julia_re, img->julia_im,
+						MAX_ITER);
             draw_pixel(img, x, y, get_color(iter));
             x++;
         }
@@ -72,3 +85,6 @@ int    close_handler(t_fractol *img)
     free(img->mlx);
     exit(0);
 }
+
+
+// iter = julia(cr, ci, img);
