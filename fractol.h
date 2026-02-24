@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:53:53 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/24 16:55:51 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/24 20:56:53 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 //window size
 # define WIDTH 600
 # define HEIGHT 600
-# define MAX_ITER 88
+# define MAX_ITER 800
 
 //keys
 # define KEY_ESC 65307

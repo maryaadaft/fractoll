@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 17:05:08 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/23 15:30:06 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/24 20:54:35 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int    mandelbrot(double c_re, double c_im)
     double  z_re;
     double  z_im;
     double  tmp;
-    int     i;
+	int     i;
 
     z_re = 0.0;
     z_im = 0.0;

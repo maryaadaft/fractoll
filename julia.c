@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 17:25:45 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/24 17:07:15 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/02/24 20:52:33 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,3 @@ int julia(double z_re, double z_im, double c_re, double c_im, int max_iter)
     }
     return i;
 }
-
