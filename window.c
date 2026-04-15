@@ -63,7 +63,8 @@ void    render(t_fractol *img)
         while (x < WIDTH)
         {
             cr = img->min_re + (double)x / WIDTH * (img->max_re - img->min_re);
-            ci = img->min_im + (double)y / HEIGHT * (img->max_im - img->min_im);
+            // ci = img->min_im + (double)y / HEIGHT * (img->max_im - img->min_im);
+            ci = img->max_im - (double)y / HEIGHT * (img->max_im - img->min_im);
             if (img->fractal_type == 0)
                 iter = mandelbrot(cr, ci);
             else
