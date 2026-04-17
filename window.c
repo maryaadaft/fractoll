@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:26:12 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/24 17:25:37 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/04/17 18:33:29 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ void    render(t_fractol *img)
         while (x < WIDTH)
         {
             cr = img->min_re + (double)x / WIDTH * (img->max_re - img->min_re);
-            ci = img->min_im + (double)y / HEIGHT * (img->max_im - img->min_im);
+            // ci = img->min_im + (double)y / HEIGHT * (img->max_im - img->min_im);
+			ci = img->max_im - (double)y / HEIGHT * (img->max_im - img->min_im);
+			
             if (img->fractal_type == 0)
                 iter = mandelbrot(cr, ci);
             else

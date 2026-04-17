@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:53:53 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/24 20:56:53 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/04/17 18:46:33 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include "mlx/mlx.h"
+
 #include <stdio.h>
 
 //window size
@@ -77,35 +78,3 @@ int julia(double z_re, double z_im, double c_re, double c_im, int max_iter);
 double    ft_atof(const char *s);
 
 #endif
-
-
-
-
-// typedef struct s_data
-// {
-// 	void	*mlx;
-// 	void	*win;
-// 	void	*img;
-// 	char	*addr;
-// 	int		bpp;
-// 	int		line_len;
-// 	int		endian;
-// } t_data;
-
-// typedef struct s_fractol
-// {
-//     t_data img;
-//     int width;
-//     int height;
-//     double min_re;
-//     double max_re;
-//     double min_im;
-//     double max_im;
-//     int max_iter;
-//     int fractal_type; // 0 = Mandelbrot, 1 = Julia
-//     double julia_c_re;
-//     double julia_c_im;
-//     double zoom;
-//     double move_x;
-//     double move_y;
-// }	t_fractol;
