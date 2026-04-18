@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:53:53 by maryaada          #+#    #+#             */
-/*   Updated: 2026/04/17 18:46:33 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/04/18 16:56:36 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_strcmp(const char *s1, const char *s2);
 void	open_window(t_fractol *img);
 void draw_pixel(t_fractol *img, int x, int y, int color);
 void	print_error(char *error_msg);
-
+int	ft_isnum(const char *s);
 
 void	choose_mandel(t_fractol *img);
 void	choose_julia(t_fractol *img, char **argv);
@@ -73,7 +73,7 @@ int     mouse_handler(int button, int x, int y, t_fractol *img);
 int    close_handler(t_fractol *img);
 int    key_handler(int keycode, t_fractol *img);
 
-int julia(double z_re, double z_im, double c_re, double c_im, int max_iter);
+int julia(double z_re, double z_im, double c_re, double c_im);
 
 double    ft_atof(const char *s);
 

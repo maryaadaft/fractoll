@@ -6,46 +6,50 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:20:19 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/24 20:55:03 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/04/18 18:26:53 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+static void	print_help(void)
+{
+	write(1, "How to run:\n", 13);
+	write(1, "  ./fractol Mandelbrot\n", 24);
+	write(1, "  ./fractol Julia <real> <imaginary>\n", 37);
+	write(1, "\nExamples:\n", 11);
+	write(1, "  ./fractol Julia -0.7 0.27\n", 29);
+	write(1, "  ./fractol Julia -0.4 0.6\n", 28);
+	write(1, "  ./fractol Julia 0.285 0.01\n", 30);
+	write(1, "\nParameters must be between -2.0 and 2.0\n", 41);
+	exit(1);
+}
+
 void	handle_args(char **argv, int argc, t_fractol *img)
 {
-	if ((argc == 2 || argc == 4) && ft_strcmp(argv[1], "Julia") == 0)
-	{
-		if ((argc == 2) &&  ft_strcmp(argv[1], "Julia") == 0)
-		{
-			print_error("Please enter 2 valid Julia parameters");
-		}
-		else if (argc == 4 && ft_strcmp(argv[1], "Julia") == 0)
-		{
-			choose_julia(img, argv);
-			return ;
-		}
-	}
-	else if (argc == 2 && ft_strcmp(argv[1], "Mandelbrot") == 0)
+	if (ft_strcmp(argv[1], "Mandelbrot") == 0 && argc == 2)
 	{
 		choose_mandel(img);
 		return ;
 	}
-	else
+	else if (ft_strcmp(argv[1], "Julia") == 0)
 	{
-		print_error("Choose to run \n ./fractol Mandelbrot \n OR \n ./fractol Julia <real> <imagi>\n");
+		if (argc != 4)
+			print_error("Error: Julia needs exactly 2 parameters\n");
+		choose_julia(img, argv);
+		return ;
 	}
+	else
+		print_help();
 }
 
 int	main(int argc, char **argv)
 {
 	t_fractol img;
 
-	if (argc >= 2 && argc <= 4)
-		handle_args(argv, argc, &img);
-	else
-		print_error("Choose to run \n ./fractol Mandelbrot \n OR \n ./fractol Julia <real> <imagi>\n");
-
+	if (argc < 2)
+		print_help();
+	handle_args(argv, argc, &img);
 	open_window(&img);
 	render(&img);
 	mlx_key_hook(img.win, key_handler, &img);
@@ -54,44 +58,3 @@ int	main(int argc, char **argv)
     mlx_loop(img.mlx);
 	return (0);
 }
-
-//convert x and y into real and imaginary numbers
-/* 
-double pixel_to_real(int x, t_fractol *f)
-{
-    return f->min_re + x * (f->max_re - f->min_re) / f->width;
-}
-
-double pixel_to_imag(int y, t_fractol *f)
-{
-    return f->min_im + y * (f->max_im - f->min_im) / f->height;
-}
- */
-
- //=============================================================
- 
-// rendering a fractol any one of them
-/* void render(t_fractol *f)
-{
-    int x, y, iter;
-    double re, im;
-    int color;
-
-    for (y = 0; y < f->height; y++)
-    {
-        for (x = 0; x < f->width; x++)
-        {
-            re = pixel_to_real(x, f);
-            im = pixel_to_imag(y, f);
-            if (f->fractal_type == 0)
-                iter = mandelbrot(re, im, f->max_iter);
-            else
-                iter = julia(re, im, f->julia_c_re, f->julia_c_im, f->max_iter);
-
-            color = (iter << 21) | (iter << 10) | iter*8; // simple coloring
-            draw_pixel(&f->img, x, y, color);
-        }
-    }
-    mlx_put_image_to_window(f->img.mlx, f->img.win, f->img.img, 0, 0);
-}
- */

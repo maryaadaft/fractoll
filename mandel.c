@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 17:05:08 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/24 20:54:35 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/04/18 16:44:38 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	choose_mandel(t_fractol *mandel_img)
 	mandel_img->min_im = -1.5;
 	mandel_img->max_im = 1.5;
 }
-
-//===================================
 
 int    mandelbrot(double c_re, double c_im)
 {
@@ -43,24 +41,3 @@ int    mandelbrot(double c_re, double c_im)
     }
     return (i);
 }
-
-
-
-
-
-
-// int mandelbrot(double c_re, double c_im, int max_iter)
-// {
-//     double z_re = 0, z_im = 0;
-//     int i = 0;
-//     double tmp;
-
-//     while (z_re * z_re + z_im * z_im <= 4 && i < max_iter)
-//     {
-//         tmp = z_re * z_re - z_im * z_im + c_re;
-//         z_im = 2 * z_re * z_im + c_im;
-//         z_re = tmp;
-//         i++;
-//     }
-//     return i;
-// }

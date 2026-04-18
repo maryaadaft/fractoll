@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 21:40:46 by maryaada          #+#    #+#             */
-/*   Updated: 2026/02/24 20:54:17 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/04/18 18:46:47 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 	}
 	return (0);
 }
-//parse julia
-//check julia parameters
-
-
-//error message printer and exiter thingie
 
 void	print_error(char *error_msg)
 {
