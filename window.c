@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:26:12 by maryaada          #+#    #+#             */
-/*   Updated: 2026/04/18 21:18:30 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/04/18 21:53:59 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	open_window(t_fractol *img)
                                  &img->line_len, &img->endian);
 	if (!img->addr)
 	{
-		write(1, "Error: Image address retrieval failed\n", 39);
+		write(2, "Error: Image address retrieval failed\n", 39);
 		close_handler(img);
 	}
 }
@@ -48,6 +48,7 @@ void draw_pixel(t_fractol *img, int x, int y, int color)
     dst = img->addr + (y * img->line_len + x * (img->bpp / 8));
     *(unsigned int*)dst = color;
 }
+
 
 int get_color(int iter)
 {

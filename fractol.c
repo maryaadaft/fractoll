@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:20:19 by maryaada          #+#    #+#             */
-/*   Updated: 2026/04/18 18:26:53 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/04/18 22:02:31 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	handle_args(char **argv, int argc, t_fractol *img)
 	{
 		if (argc != 4)
 			print_error("Error: Julia needs exactly 2 parameters\n");
+		if (argc == 4 && !(ft_isnum(argv[2]) && ft_isnum(argv[3])))
+			print_error("Error: Invalid Julia numbers, please enter valid numbers (between -2 and 2)!\n");
 		choose_julia(img, argv);
 		return ;
 	}
