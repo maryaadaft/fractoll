@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:24:03 by maryaada          #+#    #+#             */
-/*   Updated: 2026/04/18 16:52:25 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/04/20 00:56:07 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ double	ft_atof(const char *s)
 	int		i;
 
 	if (!ft_isnum(s))
-		print_error("Error: Invalid Julia numbers, please enter valid numbers (between -2 and 2) !\n");
+		print_error("Error: Julia numbers must be between -2 and 2\n");
 	result = 0.0;
 	frac = 1.0;
 	sign = 1;
