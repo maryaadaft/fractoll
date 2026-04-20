@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 15:53:53 by maryaada          #+#    #+#             */
-/*   Updated: 2026/04/18 16:56:36 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/04/20 14:12:20 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,34 +18,21 @@
 #include <stdlib.h>
 #include "mlx/mlx.h"
 
-#include <stdio.h>
-
-//window size
 # define WIDTH 600
 # define HEIGHT 600
-# define MAX_ITER 800
-
-//keys
+# define MAX_ITER 100
 # define KEY_ESC 65307
-
-# define KEY_UP 111
-# define KEY_DOWN 116
-# define KEY_LEFT 113
-# define KEY_RIGHT 114
 
 typedef struct s_fractol
 {
-    // mlx stuff
     void    *mlx;
     void    *win;
-	//img
     void    *img;
     char    *addr;
     int     bpp;
     int     line_len;
     int     endian;
-    // fractal settings
-    int     fractal_type;  // 0 = Mandelbrot, 1 = Julia
+    int     fractal_type;
     double  min_re;
     double  max_re;
     double  min_im;
